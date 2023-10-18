@@ -1,30 +1,27 @@
-def calcular_troco (valor, saldo):
-    troco = valor - saldo
-    return troco
-i = 0
+estoque = []
 
-cadastrar = float(input('Quantos produtos a senhora está interessada?'))
-for i in range (cadastrar):
-    comida = []
-    nome = input('Nome do produto')
-    valor = float(input('Valor do produto: '))
-    marca = input('Marca do produto: ')
-    estoque = float(input('Quantidade de estoque do produto'))
-    cadastro = (nome, valor, marca, estoque)
-    comida.append(nome, valor, marca, estoque)
-    saldo = float(input(' Qual o saldo que você possui no momento '))
-    troco = calcular_troco(valor, saldo)
-    print(f'O produto {nome} com vaor {valor} da marca {marca} e a quantidade do estoque {estoque} com o saldo atual {saldo} terá o troco de {troco}')
-    if saldo < valor:
-        print('Você não tem saldo o suficiente')
+def realizar_venda(qtde_vendida, valor_pago, produto):
+        if qtde_vendida > qntde_estoque:
+            print('Não pode realizar a venda')
+        else:
+            valor_pago = float(input('Digite o valor pago'))
+            realizar_venda(qtde_vendida, valor_pago, produto)
+
+
+num = int(input('Digite o número de produtos que quer cadastrar: '))
+
+for i in range(num):
+    nome = input('Digite o nome do produto:')
+    qntde_estoque = int(input('Digite a quantidade em estoque: '))
+    valor = float(input(' Digite o valor do produto:'))
+    produto = (nome, qntde_estoque, valor)
+    estoque.append(produto)
+    qtde_vendida = int(input('Digite a quantidade a ser vendida: '))
+    if qtde_vendida > qntde_estoque:
+        print('Não pode realizar a venda')
     else:
-        print(troco)
-
-
-
-
-
-    
+        valor_pago = float(input('Digite o valor pago'))
+        realizar_venda(qtde_vendida, valor_pago, produto)
 
 
 
